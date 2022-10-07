@@ -1,0 +1,2647 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:ns2="http://www.nortel.com/soa/oi/cct/faults" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.nortel.com/soa/oi/cct/SessionService" xmlns:ns1="http://www.nortel.com/soa/oi/cct/types/SessionService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns3="http://schemas.xmlsoap.org/soap/http" name="SOAOICCT" targetNamespace="http://www.nortel.com/soa/oi/cct/SessionService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:tns="http://www.nortel.com/soa/oi/cct/types/SessionService" xmlns:ns1="http://www.nortel.com/soa/oi/cct/types" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.nortel.com/soa/oi/cct/types/SessionService" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://www.nortel.com/soa/oi/cct/types" />
+      <xs:element name="AddressResponse" type="tns:AddressResponse" />
+      <xs:element name="AnswerContactRequest" type="tns:TerminalContactRequest" />
+      <xs:element name="CallSupervisorRequest" type="tns:TerminalAddressRequest" />
+      <xs:element name="CompleteConferenceRequest" type="tns:TerminalContactContactRequest" />
+      <xs:element name="CompleteSupervisedTransferRequest" type="tns:TerminalContactContactRequest" />
+      <xs:element name="CreateContactRequest" type="tns:CreateContactRequest" />
+      <xs:element name="CreateContactResponse" type="tns:ContactResponse" />
+      <xs:element name="DisposeRequest" type="tns:SsoRequest" />
+      <xs:element name="DropContactRequest" type="tns:TerminalContactRequest" />
+      <xs:element name="EmergencyKeyRequest" type="tns:TerminalContactRequest" />
+      <xs:element name="GenerateDTMFRequest" type="tns:GenerateDTMFRequest" />
+      <xs:element name="GetAddressRequest" type="tns:GetAddressRequest" />
+      <xs:element name="GetAddressesRequest" type="tns:GetAddressesRequest" />
+      <xs:element name="GetAddressesResponse" type="tns:AddressList" />
+      <xs:element name="GetAgentAddressesRequest" type="tns:GetAgentAddressesRequest" />
+      <xs:element name="GetAgentAddressesResponse" type="tns:AddressList" />
+      <xs:element name="GetAgentTerminalsRequest" type="tns:GetAgentTerminalsRequest" />
+      <xs:element name="GetAgentTerminalsResponse" type="tns:TerminalList" />
+      <xs:element name="GetAgentsRequest" type="tns:SsoRequest" />
+      <xs:element name="GetAgentsResponse" type="tns:GetAgentsResponse" />
+      <xs:element name="GetContactDataRequest" type="tns:ContactRequest" />
+      <xs:element name="GetContactDataResponse" type="tns:GetContactDataResponse" />
+      <xs:element name="GetContactRequest" type="tns:ContactRequest" />
+      <xs:element name="GetContactResponse" type="tns:ContactResponse" />
+      <xs:element name="GetCurrentAddressCountRequest" type="tns:SsoRequest" />
+      <xs:element name="GetCurrentAddressCountResponse" type="xs:int" />
+      <xs:element name="GetCurrentTerminalCountRequest" type="tns:SsoRequest" />
+      <xs:element name="GetCurrentTerminalCountResponse" type="xs:int" />
+      <xs:element name="GetIntrinsicsRequest" type="tns:ContactRequest" />
+      <xs:element name="GetIntrinsicsResponse" type="tns:GetIntrinsicsResponse" />
+      <xs:element name="GetReadyStateRequest" type="tns:TerminalRequest" />
+      <xs:element name="GetReadyStateResponse" type="tns:GetReadyStateResponse" />
+      <xs:element name="GetTerminalAddressesRequest" type="tns:GetTerminalAddressesRequest" />
+      <xs:element name="GetTerminalAddressesResponse" type="tns:AddressList" />
+      <xs:element name="GetTerminalRequest" type="tns:GetTerminalRequest" />
+      <xs:element name="GetTerminalsRequest" type="tns:GetTerminalsRequest" />
+      <xs:element name="GetTerminalsResponse" type="tns:TerminalList" />
+      <xs:element name="GetVersionRequest" type="ns1:getVersionRequest" />
+      <xs:element name="GetVersionResponse" type="ns1:getVersionResponse" />
+      <xs:element name="HoldContactRequest" type="tns:TerminalContactRequest" />
+      <xs:element name="InitiateConferenceRequest" type="tns:TerminalContactAddressRequest" />
+      <xs:element name="InitiateConferenceResponse" type="tns:ContactResponse" />
+      <xs:element name="InitiateSupervisedTransferRequest" type="tns:TerminalContactAddressRequest" />
+      <xs:element name="InitiateSupervisedTransferResponse" type="tns:ContactResponse" />
+      <xs:element name="LogInToCCTServerRequest" type="tns:LogInToCCTServerRequest" />
+      <xs:element name="LogInToCCTServerResponse" type="tns:LogInToCCTServerResponse" />
+      <xs:element name="LogOffFromCCTServerRequest" type="tns:LogOffFromCCTServerRequest" />
+      <xs:element name="LoginAgentRequest" type="tns:LoginAgentRequest" />
+      <xs:element name="LoginAgentToStateRequest" type="tns:LoginAgentToStateRequest" />
+      <xs:element name="LoginAgentToTerminalRequest" type="tns:LoginAgentToTerminalRequest" />
+      <xs:element name="LogoutAgentFromTerminalRequest" type="tns:LogoutAgentFromTerminalRequest" />
+      <xs:element name="LogoutAgentRequest" type="tns:LogoutAgentRequest" />
+      <xs:element name="MakeSetBusyRequest" type="tns:TerminalRequest" />
+      <xs:element name="SetActivityCodeRequest" type="tns:SetActivityCodeRequest" />
+      <xs:element name="SetContactDataRequest" type="tns:SetContactDataRequest" />
+      <xs:element name="SetIntrinsicsRequest" type="tns:SetIntrinsicsRequest" />
+      <xs:element name="SetToNotReadyStateWithReasonCodeRequest" type="tns:SetToNotReadyStateWithReasonCodeRequest" />
+      <xs:element name="SetToNotReadyStatetRequest" type="tns:TerminalRequest" />
+      <xs:element name="SetToReadyStatetRequest" type="tns:TerminalRequest" />
+      <xs:element name="TerminalResponse" type="tns:TerminalResponse" />
+      <xs:element name="TransferContactRequest" type="tns:TerminalContactAddressRequest" />
+      <xs:element name="UnHoldContactRequest" type="tns:TerminalContactRequest" />
+      <xs:complexType name="ContactRequest">
+        <xs:sequence>
+          <xs:element name="ssoToken" type="ns1:ssoToken" />
+          <xs:element name="contact" type="ns1:contact" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetContactDataResponse">
+        <xs:sequence>
+          <xs:element name="contactData" type="ns1:attachedData" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TerminalContactContactRequest">
+        <xs:sequence>
+          <xs:element name="ssoToken" type="ns1:ssoToken" />
+          <xs:element name="terminal" type="ns1:terminal" />
+          <xs:element name="contact" type="ns1:contact" />
+          <xs:element name="consultedContact" type="ns1:contact" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TerminalRequest">
+        <xs:sequence>
+          <xs:element name="ssoToken" type="ns1:ssoToken" />
+          <xs:element name="terminal" type="ns1:terminal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetReadyStateResponse">
+        <xs:sequence>
+          <xs:element name="ready" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetAddressesRequest">
+        <xs:sequence>
+          <xs:element name="ssoToken" type="ns1:ssoToken" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AddressList">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="addresses" nillable="true" type="ns1:address" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CreateContactRequest">
+        <xs:sequence>
+          <xs:element name="ssoToken" type="ns1:ssoToken" />
+          <xs:element name="terminal" type="ns1:terminal" />
+          <xs:element name="srcAddress" type="ns1:address" />
+          <xs:element name="dstAddress" type="ns1:address" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ContactResponse">
+        <xs:sequence>
+          <xs:element name="contact" type="ns1:contact" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetTerminalAddressesRequest">
+        <xs:sequence>
+          <xs:element name="ssoToken" type="ns1:ssoToken" />
+          <xs:element name="terminal" type="ns1:terminal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LogInToCCTServerRequest">
+        <xs:sequence>
+          <xs:element name="authenticationLevel" type="ns1:authenticationLevel" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LogInToCCTServerResponse">
+        <xs:sequence>
+          <xs:element name="ssoToken" type="ns1:ssoToken" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TerminalAddressRequest">
+        <xs:sequence>
+          <xs:element name="ssoToken" type="ns1:ssoToken" />
+          <xs:element name="terminal" type="ns1:terminal" />
+          <xs:element name="address" type="ns1:address" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TerminalContactRequest">
+        <xs:sequence>
+          <xs:element name="ssoToken" type="ns1:ssoToken" />
+          <xs:element name="terminal" type="ns1:terminal" />
+          <xs:element name="contact" type="ns1:contact" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetIntrinsicsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="intrinsic" nillable="true" type="ns1:intrinsic" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetAgentTerminalsRequest">
+        <xs:sequence>
+          <xs:element name="ssoToken" type="ns1:ssoToken" />
+          <xs:element name="agent" type="ns1:agent" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TerminalList">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="terminals" nillable="true" type="ns1:terminal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SetToNotReadyStateWithReasonCodeRequest">
+        <xs:sequence>
+          <xs:element name="ssoToken" type="ns1:ssoToken" />
+          <xs:element name="terminal" type="ns1:terminal" />
+          <xs:element name="reasonCode" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LoginAgentToStateRequest">
+        <xs:sequence>
+          <xs:element name="ssoToken" type="ns1:ssoToken" />
+          <xs:element name="terminal" type="ns1:terminal" />
+          <xs:element name="agentId" type="xs:string" />
+          <xs:element name="agentPassword" type="xs:string" />
+          <xs:element name="initialState" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LoginAgentRequest">
+        <xs:sequence>
+          <xs:element name="ssoToken" type="ns1:ssoToken" />
+          <xs:element name="terminal" type="ns1:terminal" />
+          <xs:element name="agentId" type="xs:string" />
+          <xs:element name="agentPassword" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetTerminalRequest">
+        <xs:sequence>
+          <xs:element name="ssoToken" type="ns1:ssoToken" />
+          <xs:element name="terminalName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TerminalResponse">
+        <xs:sequence>
+          <xs:element name="terminalResponse" type="ns1:terminal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SsoRequest">
+        <xs:sequence>
+          <xs:element name="ssoToken" type="ns1:ssoToken" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetAgentsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="agents" nillable="true" type="ns1:agent" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GenerateDTMFRequest">
+        <xs:sequence>
+          <xs:element name="ssoToken" type="ns1:ssoToken" />
+          <xs:element name="terminal" type="ns1:terminal" />
+          <xs:element name="contact" type="ns1:contact" />
+          <xs:element name="digits" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetTerminalsRequest">
+        <xs:sequence>
+          <xs:element name="ssoToken" type="ns1:ssoToken" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SetIntrinsicsRequest">
+        <xs:sequence>
+          <xs:element name="ssoToken" type="ns1:ssoToken" />
+          <xs:element name="contact" type="ns1:contact" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="intrinsics" nillable="true" type="ns1:intrinsic" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LoginAgentToTerminalRequest">
+        <xs:sequence>
+          <xs:element name="ssoToken" type="ns1:ssoToken" />
+          <xs:element name="agentTerminal" type="ns1:terminal" />
+          <xs:element name="agentId" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="initialState" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetAgentAddressesRequest">
+        <xs:sequence>
+          <xs:element name="ssoToken" type="ns1:ssoToken" />
+          <xs:element name="agent" type="ns1:agent" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SetActivityCodeRequest">
+        <xs:sequence>
+          <xs:element name="ssoToken" type="ns1:ssoToken" />
+          <xs:element name="terminal" type="ns1:terminal" />
+          <xs:element name="activityCode" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SetContactDataRequest">
+        <xs:sequence>
+          <xs:element name="ssoToken" type="ns1:ssoToken" />
+          <xs:element name="contact" type="ns1:contact" />
+          <xs:element name="contactData" type="ns1:attachedData" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TerminalContactAddressRequest">
+        <xs:sequence>
+          <xs:element name="ssoToken" type="ns1:ssoToken" />
+          <xs:element name="terminal" type="ns1:terminal" />
+          <xs:element name="contact" type="ns1:contact" />
+          <xs:element name="address" type="ns1:address" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LogOffFromCCTServerRequest">
+        <xs:sequence>
+          <xs:element name="ssoToken" type="ns1:ssoToken" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetAddressRequest">
+        <xs:sequence>
+          <xs:element name="ssoToken" type="ns1:ssoToken" />
+          <xs:element name="addressName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AddressResponse">
+        <xs:sequence>
+          <xs:element name="addressResponse" type="ns1:address" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LogoutAgentFromTerminalRequest">
+        <xs:sequence>
+          <xs:element name="ssoToken" type="ns1:ssoToken" />
+          <xs:element name="agentTerminal" type="ns1:terminal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LogoutAgentRequest">
+        <xs:sequence>
+          <xs:element name="ssoToken" type="ns1:ssoToken" />
+          <xs:element name="terminal" type="ns1:terminal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ConnectionResponse">
+        <xs:sequence>
+          <xs:element name="connection" type="ns1:connection" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://www.nortel.com/soa/oi/cct/types" elementFormDefault="qualified" targetNamespace="http://www.nortel.com/soa/oi/cct/types" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ssoToken">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="token" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="contact">
+        <xs:sequence>
+          <xs:element name="contactId" type="xs:string" />
+          <xs:element name="externalContactId" type="xs:string" />
+          <xs:element name="provider" type="tns:provider" />
+          <xs:element name="contactTypes" type="tns:contactTypeArray" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="provider">
+        <xs:sequence>
+          <xs:element name="providerName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="contactTypeArray">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="item" nillable="true" type="tns:contactType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="contactType">
+        <xs:sequence>
+          <xs:element name="type" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="attachedData">
+        <xs:sequence>
+          <xs:element name="type" type="xs:string" />
+          <xs:element minOccurs="0" name="binaryData" type="tns:byteArray" />
+          <xs:element minOccurs="0" name="keyValueData" type="tns:keyValuePairArray" />
+          <xs:element minOccurs="0" name="stringData" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="byteArray">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="item" type="xs:byte" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="keyValuePairArray">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="item" nillable="true" type="tns:keyValuePair" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="keyValuePair">
+        <xs:sequence>
+          <xs:element name="key" type="xs:string" />
+          <xs:element name="value" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="terminal">
+        <xs:sequence>
+          <xs:element name="terminalName" type="xs:string" />
+          <xs:element name="terminalType" type="tns:terminalType" />
+          <xs:element name="provider" type="tns:provider" />
+          <xs:element minOccurs="0" name="status" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="address">
+        <xs:sequence>
+          <xs:element name="addressName" type="xs:string" />
+          <xs:element name="addressType" type="tns:addressType" />
+          <xs:element name="provider" type="tns:provider" />
+          <xs:element minOccurs="0" name="status" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getVersionRequest">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="getVersionResponse">
+        <xs:sequence>
+          <xs:element name="version" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="authenticationLevel">
+        <xs:sequence>
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="domain" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="intrinsic">
+        <xs:sequence>
+          <xs:element name="key" type="xs:string" />
+          <xs:element name="value" type="xs:string" />
+          <xs:element name="immutable" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="agent">
+        <xs:sequence>
+          <xs:element name="agentLoginId" type="xs:string" />
+          <xs:element name="userName" type="xs:string" />
+          <xs:element name="agentType" type="tns:agentType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="connection">
+        <xs:sequence>
+          <xs:element name="connectionId" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="terminalConnectionStateInfo">
+        <xs:sequence>
+          <xs:element name="currentState" type="tns:terminalConnectionStateHolder" />
+          <xs:element name="lastState" type="tns:terminalConnectionStateHolder" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="parentId" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="terminalConnectionStateHolder">
+        <xs:sequence>
+          <xs:element name="state" type="xs:string" />
+          <xs:element minOccurs="0" name="entranceTime" type="xs:long" />
+          <xs:element minOccurs="0" name="reasonCode" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addressPropertyDoNotDisturb">
+        <xs:sequence>
+          <xs:element name="doNotDisturbSet" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="agentTerminalPropertyActivityCode">
+        <xs:sequence>
+          <xs:element name="activityCode" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="terminalPropertyDoNotDisturb">
+        <xs:sequence>
+          <xs:element name="doNotDisturbSet" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="contactPropertyContactTypeArray">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="item" nillable="true" type="tns:contactType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="contactPropertyCalledAddress">
+        <xs:sequence>
+          <xs:element name="calledAddress" type="tns:address" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="routePointConnectionCapabilities">
+        <xs:sequence>
+          <xs:element name="canGiveMusic" type="xs:boolean" />
+          <xs:element name="canGiveRingBack" type="xs:boolean" />
+          <xs:element name="canGiveSilence" type="xs:boolean" />
+          <xs:element name="canRoute" type="xs:boolean" />
+          <xs:element name="canRetrieveContact" type="xs:boolean" />
+          <xs:element name="canGetRetrieverAddress" type="xs:boolean" />
+          <xs:element name="canSetRetrieveStatus" type="xs:boolean" />
+          <xs:element name="canGiveIvr" type="xs:boolean" />
+          <xs:element name="canGiveRan" type="xs:boolean" />
+          <xs:element name="canGiveOverflow" type="xs:boolean" />
+          <xs:element name="canGiveBusy" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="terminalPropertyForwardingArray">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="item" nillable="true" type="tns:terminalPropertyForwarding" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="terminalPropertyForwarding">
+        <xs:sequence>
+          <xs:element name="destinationAddress" type="xs:string" />
+          <xs:element minOccurs="0" name="filter" type="xs:int" />
+          <xs:element minOccurs="0" name="caller" type="xs:string" />
+          <xs:element minOccurs="0" name="type" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addressPropertyMessageWaiting">
+        <xs:sequence>
+          <xs:element name="messageWaiting" type="xs:boolean" />
+          <xs:element name="numberMessageWaiting" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addressPropertyForwardingArray">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="item" nillable="true" type="tns:addressPropertyForwarding" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addressPropertyForwarding">
+        <xs:sequence>
+          <xs:element name="destinationAddress" type="xs:string" />
+          <xs:element minOccurs="0" name="filter" type="xs:int" />
+          <xs:element minOccurs="0" name="caller" type="xs:string" />
+          <xs:element minOccurs="0" name="type" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="agentTerminalPropertyReadyStatus">
+        <xs:sequence>
+          <xs:element name="status" type="xs:boolean" />
+          <xs:element minOccurs="0" name="reasonCode" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="contactPropertyAttachedData">
+        <xs:sequence>
+          <xs:element name="attachedData" type="tns:attachedData" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="contactPropertySpExternalId">
+        <xs:sequence>
+          <xs:element name="spExternalId" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="contactPropertyCallingAddress">
+        <xs:sequence>
+          <xs:element name="callingAddress" type="tns:address" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="contactPropertyCallingTerminal">
+        <xs:sequence>
+          <xs:element name="callingTerminal" type="tns:terminal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="terminalConnectionCapabilities">
+        <xs:sequence>
+          <xs:element name="canAnswer" type="xs:boolean" />
+          <xs:element name="canBlindTransfer" type="xs:boolean" />
+          <xs:element name="canCompleteConference" type="xs:boolean" />
+          <xs:element name="canCompleteTransfer" type="xs:boolean" />
+          <xs:element name="canConsult" type="xs:boolean" />
+          <xs:element name="canGenerateDTMF" type="xs:boolean" />
+          <xs:element name="canHold" type="xs:boolean" />
+          <xs:element name="canInitiateConference" type="xs:boolean" />
+          <xs:element name="canInitiateTransfer" type="xs:boolean" />
+          <xs:element name="canUnhold" type="xs:boolean" />
+          <xs:element name="canSetActivityCode" type="xs:boolean" />
+          <xs:element name="canGetActivityCode" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addressPropertyAcquireStatus">
+        <xs:sequence>
+          <xs:element name="acquired" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="terminalPropertyContactType">
+        <xs:sequence>
+          <xs:element name="type" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="terminalPropertyContactTypeArray">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="item" nillable="true" type="tns:terminalPropertyContactType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="instantMessage">
+        <xs:sequence>
+          <xs:element name="message" type="xs:string" />
+          <xs:element name="sender" type="xs:string" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="timeStamp" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="agentCapabilities">
+        <xs:sequence>
+          <xs:element name="canGetNotReadyReason" type="xs:boolean" />
+          <xs:element name="canGetReadyStatus" type="xs:boolean" />
+          <xs:element name="canGetSupervisor" type="xs:boolean" />
+          <xs:element name="canLogin" type="xs:boolean" />
+          <xs:element name="canLogout" type="xs:boolean" />
+          <xs:element name="canRetrieve" type="xs:boolean" />
+          <xs:element name="canSetNotReadyReason" type="xs:boolean" />
+          <xs:element name="canSetReadyStatus" type="xs:boolean" />
+          <xs:element name="canSetStaticVoiceTerminal" type="xs:boolean" />
+          <xs:element name="canSetACWCode" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="authentication">
+        <xs:sequence>
+          <xs:element name="username" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element name="domain" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addressArray">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="item" nillable="true" type="tns:address" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addressPropertyUri">
+        <xs:sequence>
+          <xs:element name="uri" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="terminalArray">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="item" nillable="true" type="tns:terminal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="messageWaiting">
+        <xs:sequence>
+          <xs:element name="messageWaiting" type="xs:boolean" />
+          <xs:element name="numberOfMessages" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="terminalConnection">
+        <xs:sequence>
+          <xs:element name="terminalConnectionId" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="attachedXMLData">
+        <xs:sequence>
+          <xs:element name="value1" type="xs:string" />
+          <xs:element name="value2" type="xs:string" />
+          <xs:element name="value3" type="xs:string" />
+          <xs:element name="value4" type="xs:string" />
+          <xs:element name="value5" type="xs:string" />
+          <xs:element name="value6" type="xs:string" />
+          <xs:element name="value7" type="xs:string" />
+          <xs:element name="value8" type="xs:string" />
+          <xs:element name="value9" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="contactGUID">
+        <xs:sequence>
+          <xs:element name="guid" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="contactInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="calledAddress" type="tns:address" />
+          <xs:element minOccurs="0" name="callingAddress" type="tns:address" />
+          <xs:element minOccurs="0" name="callingTerminal" type="tns:terminal" />
+          <xs:element minOccurs="0" name="capabilities" type="tns:contactCapabilities" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="connections" nillable="true" type="tns:connection" />
+          <xs:element minOccurs="0" name="lastRedirectedAddress" type="tns:address" />
+          <xs:element minOccurs="0" name="originalDestination" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="contactCapabilities">
+        <xs:sequence>
+          <xs:element name="canAddParty" type="xs:boolean" />
+          <xs:element name="canBargeIn" type="xs:boolean" />
+          <xs:element name="canDrop" type="xs:boolean" />
+          <xs:element name="canGetAttachedData" type="xs:boolean" />
+          <xs:element name="canGetCallingTerminal" type="xs:boolean" />
+          <xs:element name="canGetIntrinsics" type="xs:boolean" />
+          <xs:element name="canGetInstantMessages" type="xs:boolean" />
+          <xs:element name="canGetLastRedirectedAddress" type="xs:boolean" />
+          <xs:element name="canGetOriginalDestination" type="xs:boolean" />
+          <xs:element name="canGetUUI" type="xs:boolean" />
+          <xs:element name="canObserve" type="xs:boolean" />
+          <xs:element name="canSetAttachedData" type="xs:boolean" />
+          <xs:element name="canSetIntrinsics" type="xs:boolean" />
+          <xs:element name="canSetUUI" type="xs:boolean" />
+          <xs:element name="canWhisper" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="agentPrivileges">
+        <xs:sequence>
+          <xs:element name="canNonSkillsetObserve" type="xs:boolean" />
+          <xs:element name="canNonSkillsetBargeIn" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="mediaTreatment">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="treatmentAddress" type="xs:string" />
+          <xs:element minOccurs="0" name="treatmentTerminal" type="xs:string" />
+          <xs:element minOccurs="0" name="treatmentParameter" type="xs:string" />
+          <xs:element minOccurs="0" name="type" type="xs:string" />
+          <xs:element minOccurs="0" name="interruptible" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="intrinsicArray">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="item" nillable="true" type="tns:intrinsic" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="contactPropertyUui">
+        <xs:sequence>
+          <xs:element name="uui" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="contactPropertyLastRedirectedAddress">
+        <xs:sequence>
+          <xs:element name="lastRedirectedAddress" type="tns:address" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="systemEventSubscriptionTerminationImminent">
+        <xs:sequence>
+          <xs:element name="remainingTimeInMillis" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="agentTerminalPropertyValidateAgentStatus">
+        <xs:sequence>
+          <xs:element name="adminUserId" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="contactPropertyNetworkDialledAddress">
+        <xs:sequence>
+          <xs:element name="networkDialledAddress" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addressPropertyAddressTerminalAssociation">
+        <xs:sequence>
+          <xs:element name="address" type="tns:address" />
+          <xs:element name="terminal" type="tns:terminal" />
+          <xs:element minOccurs="0" name="orderNo" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="agentTerminalConnectionCapabilities">
+        <xs:sequence>
+          <xs:element name="canAnswer" type="xs:boolean" />
+          <xs:element name="canBlindTransfer" type="xs:boolean" />
+          <xs:element name="canCompleteConference" type="xs:boolean" />
+          <xs:element name="canCompleteTransfer" type="xs:boolean" />
+          <xs:element name="canEmergency" type="xs:boolean" />
+          <xs:element name="canGenerateDTMF" type="xs:boolean" />
+          <xs:element name="canHold" type="xs:boolean" />
+          <xs:element name="canInitiateConference" type="xs:boolean" />
+          <xs:element name="canInitiateTransfer" type="xs:boolean" />
+          <xs:element name="canUnhold" type="xs:boolean" />
+          <xs:element name="canConsult" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="agentTerminalPropertyAgentLoginSession">
+        <xs:sequence>
+          <xs:element name="loginEnded" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="contactPropertyTargetAgentPositionId">
+        <xs:sequence>
+          <xs:element name="targetAgentPositionId" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="systemEventSessionTerminationImminent">
+        <xs:sequence>
+          <xs:element name="remainingTimeInMillis" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="agentTerminalPropertyAgentLoginSessionEnded">
+        <xs:sequence>
+          <xs:element name="loginEnded" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="forwarding">
+        <xs:sequence>
+          <xs:element name="caller" type="xs:string" />
+          <xs:element name="destinationAddress" type="xs:string" />
+          <xs:element name="type" type="xs:int" />
+          <xs:element name="whichCalls" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="presence">
+        <xs:sequence>
+          <xs:element name="status" type="xs:string" />
+          <xs:element name="extendedStatus" type="xs:string" />
+          <xs:element name="activity" type="xs:string" />
+          <xs:element name="rawXml" type="xs:string" />
+          <xs:element name="note" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="stateInfo">
+        <xs:sequence>
+          <xs:element name="currentState" type="tns:state" />
+          <xs:element name="lastState" type="tns:state" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="parentId" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="state">
+        <xs:sequence>
+          <xs:element name="state" type="xs:string" />
+          <xs:element minOccurs="0" name="entranceTime" type="xs:long" />
+          <xs:element minOccurs="0" name="reasonCode" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="landingPad">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="agentPropertyACWCodeEnableAgent">
+        <xs:sequence>
+          <xs:element name="agentACWCodeEnabled" type="xs:boolean" />
+          <xs:element name="agentACWCode" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="contactPropertyIntrinsicArray">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="item" nillable="true" type="tns:intrinsic" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="systemEventSubscriptionTermination">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="reason" type="xs:string" />
+          <xs:element minOccurs="0" name="info" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="systemEventSessionTermination">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="reason" type="xs:string" />
+          <xs:element minOccurs="0" name="info" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="contactPropertySourceSiteGroupId">
+        <xs:sequence>
+          <xs:element name="sourceSiteGroupId" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="systemEventConnectionFailure">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="downTimeInMillis" type="xs:long" />
+          <xs:element minOccurs="0" name="totalFailures" type="xs:int" />
+          <xs:element minOccurs="0" name="consecutiveFailures" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="agentPropertyContactTypeArray">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="item" nillable="true" type="tns:agentPropertyContactType" />
+          <xs:element name="contactPropertyType" type="xs:string" />
+          <xs:element minOccurs="0" name="translationTable" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="agentPropertyContactType">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element minOccurs="0" name="description" type="xs:string" />
+          <xs:element name="providerId" type="xs:string" />
+          <xs:element name="providerName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="agentTerminalCapabilities">
+        <xs:sequence>
+          <xs:element name="canCallSupervisor" type="xs:boolean" />
+          <xs:element name="canForcedAnswer" type="xs:boolean" />
+          <xs:element name="canGetActivityCode" type="xs:boolean" />
+          <xs:element name="canGetNotReadyReason" type="xs:boolean" />
+          <xs:element name="canGetReadyStatus" type="xs:boolean" />
+          <xs:element name="canLogin" type="xs:boolean" />
+          <xs:element name="canLogout" type="xs:boolean" />
+          <xs:element name="canSetActivityCode" type="xs:boolean" />
+          <xs:element name="canSetNotReadyReason" type="xs:boolean" />
+          <xs:element name="canSetReadyStatus" type="xs:boolean" />
+          <xs:element name="canConference" type="xs:boolean" />
+          <xs:element name="canConsult" type="xs:boolean" />
+          <xs:element name="canDoNotDisturb" type="xs:boolean" />
+          <xs:element name="canForward" type="xs:boolean" />
+          <xs:element name="canOriginate" type="xs:boolean" />
+          <xs:element name="canPickup" type="xs:boolean" />
+          <xs:element name="canPickupFromGroup" type="xs:boolean" />
+          <xs:element name="canTransfer" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="agentTerminalConnection">
+        <xs:sequence>
+          <xs:element name="agentTerminalConnectionId" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="connectionCapabilities">
+        <xs:sequence>
+          <xs:element name="canAccept" type="xs:boolean" />
+          <xs:element name="canAlert" type="xs:boolean" />
+          <xs:element name="canDisconnect" type="xs:boolean" />
+          <xs:element name="canPark" type="xs:boolean" />
+          <xs:element name="canRedirect" type="xs:boolean" />
+          <xs:element name="canReject" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="connectionStateInfo">
+        <xs:sequence>
+          <xs:element name="currentState" type="tns:connectionStateHolder" />
+          <xs:element name="lastState" type="tns:connectionStateHolder" />
+          <xs:element name="type" type="xs:string" />
+          <xs:element name="parentId" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="connectionStateHolder">
+        <xs:sequence>
+          <xs:element name="state" type="xs:string" />
+          <xs:element minOccurs="0" name="entranceTime" type="xs:long" />
+          <xs:element minOccurs="0" name="reasonCode" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="treatmentConnection">
+        <xs:sequence>
+          <xs:element name="treatmentConnectionId" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addressPropertyPresence">
+        <xs:sequence>
+          <xs:element name="presence" type="tns:presence" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addressCapabilities">
+        <xs:sequence>
+          <xs:element name="canConference" type="xs:boolean" />
+          <xs:element name="canConsult" type="xs:boolean" />
+          <xs:element name="canDoNotDisturb" type="xs:boolean" />
+          <xs:element name="canForward" type="xs:boolean" />
+          <xs:element name="canGetMessageWaiting" type="xs:boolean" />
+          <xs:element name="canSetMessageWaiting" type="xs:boolean" />
+          <xs:element name="canOriginate" type="xs:boolean" />
+          <xs:element name="canTransfer" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="terminalCapabilities">
+        <xs:sequence>
+          <xs:element name="canConference" type="xs:boolean" />
+          <xs:element name="canConsult" type="xs:boolean" />
+          <xs:element name="canDoNotDisturb" type="xs:boolean" />
+          <xs:element name="canForward" type="xs:boolean" />
+          <xs:element name="canOriginate" type="xs:boolean" />
+          <xs:element name="canPickup" type="xs:boolean" />
+          <xs:element name="canPickupFromGroup" type="xs:boolean" />
+          <xs:element name="canTransfer" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="contactPropertyRoute">
+        <xs:sequence>
+          <xs:element name="address" type="tns:address" />
+          <xs:element name="contact" type="tns:contact" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="contactPropertyCcmId">
+        <xs:sequence>
+          <xs:element name="ccmId" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="agentPropertyReadyStatus">
+        <xs:sequence>
+          <xs:element name="status" type="xs:boolean" />
+          <xs:element minOccurs="0" name="reasonCode" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="agentPropertyLoginStatus">
+        <xs:sequence>
+          <xs:element name="status" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="agentPropertyNotification">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="notificationType" type="xs:int" />
+          <xs:element minOccurs="0" name="notificationText" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="tokens" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="terminalPropertyName">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="agentPropertyInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="templateId" type="xs:string" />
+          <xs:element minOccurs="0" name="positionId" type="xs:string" />
+          <xs:element minOccurs="0" name="tnName" type="xs:string" />
+          <xs:element minOccurs="0" name="changeId" type="xs:string" />
+          <xs:element minOccurs="0" name="sortKey" type="xs:string" />
+          <xs:element minOccurs="0" name="displayTemplate" type="xs:string" />
+          <xs:element minOccurs="0" name="hasSkillset" type="xs:boolean" />
+          <xs:element minOccurs="0" name="hasPrimaries" type="xs:boolean" />
+          <xs:element minOccurs="0" name="hasSecondaries" type="xs:boolean" />
+          <xs:element minOccurs="0" name="referedByTf" type="xs:boolean" />
+          <xs:element minOccurs="0" name="referedByTfv" type="xs:boolean" />
+          <xs:element minOccurs="0" name="viewScope" type="xs:string" />
+          <xs:element minOccurs="0" name="personalDn" type="xs:string" />
+          <xs:element minOccurs="0" name="secondaryDn" type="xs:string" />
+          <xs:element minOccurs="0" name="state" type="xs:string" />
+          <xs:element minOccurs="0" name="primeId" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="terminalPropertyTransport">
+        <xs:sequence>
+          <xs:element name="terminal" type="tns:terminal" />
+          <xs:element minOccurs="0" name="type" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="terminalPropertyPort">
+        <xs:sequence>
+          <xs:element name="port" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="terminalPropertyTreatment">
+        <xs:sequence>
+          <xs:element name="terminal" type="tns:terminal" />
+          <xs:element minOccurs="0" name="type" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="agentPropertyAddressName">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="agentPropertyVoiceTerminal">
+        <xs:sequence>
+          <xs:element name="agentTerminalId" type="xs:string" />
+          <xs:element name="agentTerminalName" type="xs:string" />
+          <xs:element name="passiveProviderName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="contactPropertyNodeId">
+        <xs:sequence>
+          <xs:element name="nodeId" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="contactPropertyCalledAlias">
+        <xs:sequence>
+          <xs:element name="calledAlias" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="attachmentType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="BINARY" />
+          <xs:enumeration value="KEY_VALUE_PAIRS" />
+          <xs:enumeration value="STRING" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="terminalType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="TREATMENT" />
+          <xs:enumeration value="GENERIC" />
+          <xs:enumeration value="AGENT" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="addressType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="UNDEFINED" />
+          <xs:enumeration value="OUT_OF_PROVIDER" />
+          <xs:enumeration value="NETWORK_ROUTE_POINT" />
+          <xs:enumeration value="ROUTE_POINT" />
+          <xs:enumeration value="TREATMENT" />
+          <xs:enumeration value="GENERIC" />
+          <xs:enumeration value="LANDING_PAD" />
+          <xs:enumeration value="DNIS_LANDING_PAD" />
+          <xs:enumeration value="DNIS" />
+          <xs:enumeration value="AGENT" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="agentType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Agent" />
+          <xs:enumeration value="AgentSupervisor" />
+          <xs:enumeration value="Supervisor" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="terminalConnectionState">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="IDLE" />
+          <xs:enumeration value="RINGING" />
+          <xs:enumeration value="ACTIVE" />
+          <xs:enumeration value="HELD" />
+          <xs:enumeration value="AUTOHELD" />
+          <xs:enumeration value="INUSE" />
+          <xs:enumeration value="BRIDGED" />
+          <xs:enumeration value="DROPPED" />
+          <xs:enumeration value="UNKNOWN" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="reason">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="DEFAULT" />
+          <xs:enumeration value="CONSULT_INIT" />
+          <xs:enumeration value="CONSULT_COMPLETE" />
+          <xs:enumeration value="TRANSFER_INIT" />
+          <xs:enumeration value="TRANSFER_URI_INIT" />
+          <xs:enumeration value="TRANSFER_OPEN_NET_INIT" />
+          <xs:enumeration value="TRANSFER_COMPLETE" />
+          <xs:enumeration value="CONFERENCE_INIT" />
+          <xs:enumeration value="CONFERENCE_URI_INIT" />
+          <xs:enumeration value="CONFERENCE_OPEN_NET_INIT" />
+          <xs:enumeration value="CONFERENCE_COMPLETE" />
+          <xs:enumeration value="BARGE_IN" />
+          <xs:enumeration value="OBSERVE" />
+          <xs:enumeration value="WHISPER" />
+          <xs:enumeration value="REJECT" />
+          <xs:enumeration value="PARK" />
+          <xs:enumeration value="REDIRECT" />
+          <xs:enumeration value="ROUTE" />
+          <xs:enumeration value="SHUTDOWN" />
+          <xs:enumeration value="EMERGENCY" />
+          <xs:enumeration value="CALL_SUPERVISOR" />
+          <xs:enumeration value="DEFAULT_TREATMENT" />
+          <xs:enumeration value="FORCE_DISCONNECT" />
+          <xs:enumeration value="ADDRESS_REMOVAL" />
+          <xs:enumeration value="NOT_READY" />
+          <xs:enumeration value="PULL" />
+          <xs:enumeration value="BULK_RECORD" />
+          <xs:enumeration value="DEMAND_RECORD" />
+          <xs:enumeration value="QUALITY_RECORD" />
+          <xs:enumeration value="DENIED" />
+          <xs:enumeration value="CANCELLED" />
+          <xs:enumeration value="NO_RESPONSE" />
+          <xs:enumeration value="INSUFFICIENT_RESOURCES" />
+          <xs:enumeration value="RECORD" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="presenceStatus">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="OPEN" />
+          <xs:enumeration value="CLOSED" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="presenceExtendedStatus">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="EXT_UNREACHABLE" />
+          <xs:enumeration value="EXT_REACHABLE" />
+          <xs:enumeration value="EXT_BUSY" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="presenceActivity">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="None" />
+          <xs:enumeration value="AVAILABLE" />
+          <xs:enumeration value="ON_THE_PHONE" />
+          <xs:enumeration value="MEAL" />
+          <xs:enumeration value="AWAY" />
+          <xs:enumeration value="HOLIDAY" />
+          <xs:enumeration value="PERM_ABSENCE" />
+          <xs:enumeration value="DO_NOT_DISTURB" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="agentCodeStatus">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="UNKNOWN" />
+          <xs:enumeration value="IDLE" />
+          <xs:enumeration value="IDLE_CODE_ENTRY" />
+          <xs:enumeration value="ACW_PENDING" />
+          <xs:enumeration value="ACW" />
+          <xs:enumeration value="NRRC_PENDING" />
+          <xs:enumeration value="NRRC" />
+          <xs:enumeration value="NOT_READY" />
+          <xs:enumeration value="NOT_READY_PENDING" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="terminationReason">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="SESSION_TERMINATION" />
+          <xs:enumeration value="SUBSCRIPTION_TERMINATION" />
+          <xs:enumeration value="UNEXPECTED_TERMINATION" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="connectionState">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="ACTIVE" />
+          <xs:enumeration value="ALERTING" />
+          <xs:enumeration value="ANCHORED" />
+          <xs:enumeration value="CONTROLLED" />
+          <xs:enumeration value="DIALING" />
+          <xs:enumeration value="DISCONNECTED" />
+          <xs:enumeration value="ESTABLISHED" />
+          <xs:enumeration value="FAILED" />
+          <xs:enumeration value="IDLE" />
+          <xs:enumeration value="INITIATED" />
+          <xs:enumeration value="NETWORK_ALERTING" />
+          <xs:enumeration value="NETWORK_REACHED" />
+          <xs:enumeration value="OFFERED" />
+          <xs:enumeration value="PARKED" />
+          <xs:enumeration value="RETRIEVING" />
+          <xs:enumeration value="ROUTING" />
+          <xs:enumeration value="QUEUED" />
+          <xs:enumeration value="UNKNOWN" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="agentLoginStatus">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="LOGGED_IN" />
+          <xs:enumeration value="LOGGED_OUT" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema xmlns="http://www.nortel.com/soa/oi/cct/faults" xmlns:ns1="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-BaseFaults-1.2-draft-01.xsd" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.nortel.com/soa/oi/cct/faults" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-BaseFaults-1.2-draft-01.xsd" />
+      <xs:element name="AcceptException" type="ns1:ExceptionInfo" />
+      <xs:element name="AddPartyException" type="ns1:ExceptionInfo" />
+      <xs:element name="AlertException" type="ns1:ExceptionInfo" />
+      <xs:element name="AnswerContactException" type="ns1:ExceptionInfo" />
+      <xs:element name="AnswerException" type="ns1:ExceptionInfo" />
+      <xs:element name="BargeInException" type="ns1:ExceptionInfo" />
+      <xs:element name="CallSupervisorException" type="ns1:ExceptionInfo" />
+      <xs:element name="CancelForwardingException" type="ns1:ExceptionInfo" />
+      <xs:element name="CancelRecordingException" type="ns1:ExceptionInfo" />
+      <xs:element name="CompleteConferenceException" type="ns1:ExceptionInfo" />
+      <xs:element name="CompleteSupervisedTransferException" type="ns1:ExceptionInfo" />
+      <xs:element name="ConfirmDemandRecordingRequestException" type="ns1:ExceptionInfo" />
+      <xs:element name="ConfirmSaveRecordingException" type="ns1:ExceptionInfo" />
+      <xs:element name="ConsultException" type="ns1:ExceptionInfo" />
+      <xs:element name="ControlException" type="ns1:ExceptionInfo" />
+      <xs:element name="CreateContactException" type="ns1:ExceptionInfo" />
+      <xs:element name="DisconnectException" type="ns1:ExceptionInfo" />
+      <xs:element name="DisposeException" type="ns1:ExceptionInfo" />
+      <xs:element name="DropContactException" type="ns1:ExceptionInfo" />
+      <xs:element name="DropException" type="ns1:ExceptionInfo" />
+      <xs:element name="EmergencyKeyException" type="ns1:ExceptionInfo" />
+      <xs:element name="GenerateDTMFException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetActivityCodeException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetAddressException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetAddressesException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetAgentACWEnabledStatusException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetAgentAddressesException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetAgentTerminalsException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetAgentsException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetAttachedDataException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetAttachedXMLDataException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetCalledAddressException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetCallingAddressException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetCallingTerminalException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetCapabilitiesException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetConferenceConsultContactException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetConnectionCapabilitiesException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetConnectionException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetConnectionsException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetConsultContactException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetContactDataException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetContactException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetContactTypeException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetContactTypesException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetCurrentAddressCountException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetCurrentTerminalCountException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetDefaultContactTypeException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetDoNotDisturbException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetForwardingException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetInstantMessagesException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetIntrinsicsException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetLastRedirectedAddressException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetLoginIdException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetMessageWaitingException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetNotReadyReasonCodeException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetNotificationException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetOriginalDestinationAddressException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetPresenceException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetPrivilegesException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetProvidersException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetReadyStateException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetRecordOnDemandStateException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetRecordOnDemandStateReasonException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetRecordingStateException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetRecordingStateReasonException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetRelatedAddressesException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetSaveRecordingStateException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetSaveRecordingStateReasonException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetStateException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetStaticVoiceTerminalException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetSupervisorException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetTerminalAddressesException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetTerminalConnectionCapabilitiesException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetTerminalConnectionsException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetTerminalException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetTerminalInfoException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetTerminalStatusException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetTerminalsException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetTransferConsultContactException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetTypeException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetUUIException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetUriException" type="ns1:ExceptionInfo" />
+      <xs:element name="GetVersionException" type="ns1:ExceptionInfo" />
+      <xs:element name="GiveMediaTreatmentException" type="ns1:ExceptionInfo" />
+      <xs:element name="GiveTreatmentException" type="ns1:ExceptionInfo" />
+      <xs:element name="HoldContactException" type="ns1:ExceptionInfo" />
+      <xs:element name="HoldException" type="ns1:ExceptionInfo" />
+      <xs:element name="InitiateConferenceException" type="ns1:ExceptionInfo" />
+      <xs:element name="InitiateSupervisedTransferException" type="ns1:ExceptionInfo" />
+      <xs:element name="IsControlledException" type="ns1:ExceptionInfo" />
+      <xs:element name="IsForwardedException" type="ns1:ExceptionInfo" />
+      <xs:element name="IsLoggedInException" type="ns1:ExceptionInfo" />
+      <xs:element name="IsMessageWaitingException" type="ns1:ExceptionInfo" />
+      <xs:element name="IsReadyException" type="ns1:ExceptionInfo" />
+      <xs:element name="IsSupervisorException" type="ns1:ExceptionInfo" />
+      <xs:element name="LogInToCCTServerException" type="ns1:ExceptionInfo" />
+      <xs:element name="LogOffFromCCTServerException" type="ns1:ExceptionInfo" />
+      <xs:element name="LoginAgentException" type="ns1:ExceptionInfo" />
+      <xs:element name="LoginAgentToStateException" type="ns1:ExceptionInfo" />
+      <xs:element name="LoginAgentToTerminalException" type="ns1:ExceptionInfo" />
+      <xs:element name="LoginException" type="ns1:ExceptionInfo" />
+      <xs:element name="LogoutAgentException" type="ns1:ExceptionInfo" />
+      <xs:element name="LogoutAgentFromTerminalException" type="ns1:ExceptionInfo" />
+      <xs:element name="LogoutException" type="ns1:ExceptionInfo" />
+      <xs:element name="MakeSetBusyException" type="ns1:ExceptionInfo" />
+      <xs:element name="MonitoredAddressesCountException" type="ns1:ExceptionInfo" />
+      <xs:element name="MonitoredTerminalsCountException" type="ns1:ExceptionInfo" />
+      <xs:element name="ObserveException" type="ns1:ExceptionInfo" />
+      <xs:element name="OriginateException" type="ns1:ExceptionInfo" />
+      <xs:element name="ParkException" type="ns1:ExceptionInfo" />
+      <xs:element name="PickupException" type="ns1:ExceptionInfo" />
+      <xs:element name="PickupFromGroupException" type="ns1:ExceptionInfo" />
+      <xs:element name="PresenceSubscribeException" type="ns1:ExceptionInfo" />
+      <xs:element name="PresenceUnsubscribeException" type="ns1:ExceptionInfo" />
+      <xs:element name="RedirectException" type="ns1:ExceptionInfo" />
+      <xs:element name="RejectException" type="ns1:ExceptionInfo" />
+      <xs:element name="ReleaseControlException" type="ns1:ExceptionInfo" />
+      <xs:element name="RequestRecordingException" type="ns1:ExceptionInfo" />
+      <xs:element name="RetrieveException" type="ns1:ExceptionInfo" />
+      <xs:element name="RouteException" type="ns1:ExceptionInfo" />
+      <xs:element name="RoutePointRetrieveException" type="ns1:ExceptionInfo" />
+      <xs:element name="SaveRecordingException" type="ns1:ExceptionInfo" />
+      <xs:element name="SendInstantMessageException" type="ns1:ExceptionInfo" />
+      <xs:element name="SessionNotCreatedException" type="ns1:ExceptionInfo" />
+      <xs:element name="SetActivityCodeException" type="ns1:ExceptionInfo" />
+      <xs:element name="SetAttachedDataException" type="ns1:ExceptionInfo" />
+      <xs:element name="SetContactDataException" type="ns1:ExceptionInfo" />
+      <xs:element name="SetDoNotDisturbException" type="ns1:ExceptionInfo" />
+      <xs:element name="SetForwardingException" type="ns1:ExceptionInfo" />
+      <xs:element name="SetInstantMessagesException" type="ns1:ExceptionInfo" />
+      <xs:element name="SetIntrinsicsException" type="ns1:ExceptionInfo" />
+      <xs:element name="SetIsReadyException" type="ns1:ExceptionInfo" />
+      <xs:element name="SetMessageWaitingException" type="ns1:ExceptionInfo" />
+      <xs:element name="SetNotReadyReasonCodeException" type="ns1:ExceptionInfo" />
+      <xs:element name="SetNotificationException" type="ns1:ExceptionInfo" />
+      <xs:element name="SetReadyException" type="ns1:ExceptionInfo" />
+      <xs:element name="SetStaticVoiceTerminalException" type="ns1:ExceptionInfo" />
+      <xs:element name="SetSupervisorException" type="ns1:ExceptionInfo" />
+      <xs:element name="SetToNotReadyStateException" type="ns1:ExceptionInfo" />
+      <xs:element name="SetToNotReadyStateWithReasonCodeException" type="ns1:ExceptionInfo" />
+      <xs:element name="SetToReadyStateException" type="ns1:ExceptionInfo" />
+      <xs:element name="SetUUIException" type="ns1:ExceptionInfo" />
+      <xs:element name="StartRecordingException" type="ns1:ExceptionInfo" />
+      <xs:element name="StopRecordingException" type="ns1:ExceptionInfo" />
+      <xs:element name="TransferContactException" type="ns1:ExceptionInfo" />
+      <xs:element name="TransferException" type="ns1:ExceptionInfo" />
+      <xs:element name="UnHoldContactException" type="ns1:ExceptionInfo" />
+      <xs:element name="UnholdException" type="ns1:ExceptionInfo" />
+      <xs:element name="UnsaveRecordingException" type="ns1:ExceptionInfo" />
+      <xs:element name="WhisperException" type="ns1:ExceptionInfo" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.xmlsoap.org/ws/2003/03/addressing" elementFormDefault="qualified" targetNamespace="http://schemas.xmlsoap.org/ws/2003/03/addressing" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="Action" type="tns:AttributedURI" />
+      <xs:element name="EndpointReference" type="tns:EndpointReferenceType" />
+      <xs:element name="FaultTo" type="tns:EndpointReferenceType" />
+      <xs:element name="From" type="tns:EndpointReferenceType" />
+      <xs:element name="MessageID" type="tns:AttributedURI" />
+      <xs:element name="Recipient" type="tns:EndpointReferenceType" />
+      <xs:element name="RelatesTo" type="tns:Relationship" />
+      <xs:element name="ReplyTo" type="tns:EndpointReferenceType" />
+      <xs:element name="To" type="tns:AttributedURI" />
+      <xs:complexType name="EndpointReferenceType">
+        <xs:sequence>
+          <xs:element name="Address" type="tns:AttributedURI" />
+          <xs:element minOccurs="0" name="ReferenceProperties" type="tns:ReferencePropertiesType" />
+          <xs:element minOccurs="0" name="PortType" type="tns:AttributedQName" />
+          <xs:element minOccurs="0" name="ServiceName" type="tns:ServiceNameType" />
+          <xs:element name="SubscriptionId" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AttributedURI">
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:attribute name="attributeValue" type="xs:QName" />
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:complexType name="ReferencePropertiesType">
+        <xs:sequence>
+          <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##other" processContents="lax" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ServiceNameType">
+        <xs:simpleContent>
+          <xs:extension base="xs:QName">
+            <xs:attribute name="PortName" type="xs:NCName" />
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:complexType name="Relationship">
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:attribute name="RelationshipType" type="xs:QName" />
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:complexType name="AttributedQName">
+        <xs:simpleContent>
+          <xs:extension base="xs:QName">
+            <xs:attribute name="attributeValue" type="xs:QName" />
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-BaseFaults-1.2-draft-01.xsd" xmlns:ns1="http://schemas.xmlsoap.org/ws/2003/03/addressing" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://docs.oasis-open.org/wsrf/2004/06/wsrf-WS-BaseFaults-1.2-draft-01.xsd" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.xmlsoap.org/ws/2003/03/addressing" />
+      <xs:element name="BaseFault" type="tns:BaseFaultType" />
+      <xs:element name="ExceptionInfo" type="tns:ExceptionInfo" />
+      <xs:complexType name="ExceptionInfo">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:BaseFaultType">
+            <xs:sequence>
+              <xs:element name="message" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="BaseFaultType">
+        <xs:sequence>
+          <xs:element name="Timestamp" type="xs:string" />
+          <xs:element minOccurs="0" name="Originator" type="ns1:EndpointReferenceType" />
+          <xs:element minOccurs="0" name="ErrorCode" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Description" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="FaultCause" type="tns:BaseFaultType" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="LogoutAgentException">
+    <wsdl:part name="LogoutAgentException" element="ns2:LogoutAgentException" />
+  </wsdl:message>
+  <wsdl:message name="LoginAgentToStateException">
+    <wsdl:part name="LoginAgentToStateException" element="ns2:LoginAgentToStateException" />
+  </wsdl:message>
+  <wsdl:message name="DropContactResponse" />
+  <wsdl:message name="LoginAgentException">
+    <wsdl:part name="LoginAgentException" element="ns2:LoginAgentException" />
+  </wsdl:message>
+  <wsdl:message name="LoginAgent">
+    <wsdl:part name="parameters" element="ns1:LoginAgentRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetReadyStateException">
+    <wsdl:part name="GetReadyStateException" element="ns2:GetReadyStateException" />
+  </wsdl:message>
+  <wsdl:message name="AnswerContact">
+    <wsdl:part name="parameters" element="ns1:AnswerContactRequest" />
+  </wsdl:message>
+  <wsdl:message name="SetIntrinsicsResponse" />
+  <wsdl:message name="GetContactResponse">
+    <wsdl:part name="response" element="ns1:GetContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="CallSupervisorResponse" />
+  <wsdl:message name="InitiateSupervisedTransferException">
+    <wsdl:part name="InitiateSupervisedTransferException" element="ns2:InitiateSupervisedTransferException" />
+  </wsdl:message>
+  <wsdl:message name="GetAgentTerminalsException">
+    <wsdl:part name="GetAgentTerminalsException" element="ns2:GetAgentTerminalsException" />
+  </wsdl:message>
+  <wsdl:message name="EmergencyKeyResponse" />
+  <wsdl:message name="GetVersionException">
+    <wsdl:part name="GetVersionException" element="ns2:GetVersionException" />
+  </wsdl:message>
+  <wsdl:message name="GetTerminalsException">
+    <wsdl:part name="GetTerminalsException" element="ns2:GetTerminalsException" />
+  </wsdl:message>
+  <wsdl:message name="InitiateSupervisedTransfer">
+    <wsdl:part name="parameters" element="ns1:InitiateSupervisedTransferRequest" />
+  </wsdl:message>
+  <wsdl:message name="CreateContactResponse">
+    <wsdl:part name="result" element="ns1:CreateContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetIntrinsicsException">
+    <wsdl:part name="GetIntrinsicsException" element="ns2:GetIntrinsicsException" />
+  </wsdl:message>
+  <wsdl:message name="GetContactException">
+    <wsdl:part name="GetContactException" element="ns2:GetContactException" />
+  </wsdl:message>
+  <wsdl:message name="GetAddress">
+    <wsdl:part name="parameters" element="ns1:GetAddressRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetTerminalsResponse">
+    <wsdl:part name="result" element="ns1:GetTerminalsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentAddressCountResponse">
+    <wsdl:part name="response" element="ns1:GetCurrentAddressCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="InitiateConference">
+    <wsdl:part name="parameters" element="ns1:InitiateConferenceRequest" />
+  </wsdl:message>
+  <wsdl:message name="DisposeResponse" />
+  <wsdl:message name="SetToNotReadyStateWithReasonCodeResponse" />
+  <wsdl:message name="LoginAgentResponse" />
+  <wsdl:message name="GetReadyState">
+    <wsdl:part name="parameters" element="ns1:GetReadyStateRequest" />
+  </wsdl:message>
+  <wsdl:message name="LogoutAgentResponse" />
+  <wsdl:message name="SetToNotReadyStateResponse" />
+  <wsdl:message name="MakeSetBusyException">
+    <wsdl:part name="MakeSetBusyException" element="ns2:MakeSetBusyException" />
+  </wsdl:message>
+  <wsdl:message name="AnswerContactException">
+    <wsdl:part name="AnswerContactException" element="ns2:AnswerContactException" />
+  </wsdl:message>
+  <wsdl:message name="DropContact">
+    <wsdl:part name="parameters" element="ns1:DropContactRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetIntrinsics">
+    <wsdl:part name="parameters" element="ns1:GetIntrinsicsRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressResponse">
+    <wsdl:part name="result" element="ns1:AddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginAgentToState">
+    <wsdl:part name="parameters" element="ns1:LoginAgentToStateRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetTerminalException">
+    <wsdl:part name="GetTerminalException" element="ns2:GetTerminalException" />
+  </wsdl:message>
+  <wsdl:message name="LogOffFromCCTServerResponse" />
+  <wsdl:message name="SetToReadyStateException">
+    <wsdl:part name="SetToReadyStateException" element="ns2:SetToReadyStateException" />
+  </wsdl:message>
+  <wsdl:message name="GetAgentTerminalsResponse">
+    <wsdl:part name="result" element="ns1:GetAgentTerminalsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTerminalAddressesException">
+    <wsdl:part name="GetTerminalAddressesException" element="ns2:GetTerminalAddressesException" />
+  </wsdl:message>
+  <wsdl:message name="InitiateConferenceException">
+    <wsdl:part name="InitiateConferenceException" element="ns2:InitiateConferenceException" />
+  </wsdl:message>
+  <wsdl:message name="TransferContactException">
+    <wsdl:part name="TransferContactException" element="ns2:TransferContactException" />
+  </wsdl:message>
+  <wsdl:message name="LoginAgentToTerminal">
+    <wsdl:part name="parameters" element="ns1:LoginAgentToTerminalRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentAddressCount">
+    <wsdl:part name="parameters" element="ns1:GetCurrentAddressCountRequest" />
+  </wsdl:message>
+  <wsdl:message name="MakeSetBusyResponse" />
+  <wsdl:message name="LogInToCCTServerException">
+    <wsdl:part name="LogInToCCTServerException" element="ns2:LogInToCCTServerException" />
+  </wsdl:message>
+  <wsdl:message name="GetAgentAddresses">
+    <wsdl:part name="parameters" element="ns1:GetAgentAddressesRequest" />
+  </wsdl:message>
+  <wsdl:message name="SetContactData">
+    <wsdl:part name="parameters" element="ns1:SetContactDataRequest" />
+  </wsdl:message>
+  <wsdl:message name="LogInToCCTServerResponse">
+    <wsdl:part name="result" element="ns1:LogInToCCTServerResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetToNotReadyState">
+    <wsdl:part name="parameters" element="ns1:SetToNotReadyStatetRequest" />
+  </wsdl:message>
+  <wsdl:message name="LogoutAgent">
+    <wsdl:part name="parameters" element="ns1:LogoutAgentRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetContactDataResponse">
+    <wsdl:part name="parameters" element="ns1:GetContactDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmergencyKey">
+    <wsdl:part name="parameters" element="ns1:EmergencyKeyRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetVersionResponse">
+    <wsdl:part name="response" element="ns1:GetVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="HoldContact">
+    <wsdl:part name="parameters" element="ns1:HoldContactRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetContactData">
+    <wsdl:part name="parameters" element="ns1:GetContactDataRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetAddresses">
+    <wsdl:part name="parameters" element="ns1:GetAddressesRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetVersion">
+    <wsdl:part name="parameters" element="ns1:GetVersionRequest" />
+  </wsdl:message>
+  <wsdl:message name="LoginAgentToTerminalResponse" />
+  <wsdl:message name="InitiateConferenceResponse">
+    <wsdl:part name="result" element="ns1:InitiateConferenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateContact">
+    <wsdl:part name="parameters" element="ns1:CreateContactRequest" />
+  </wsdl:message>
+  <wsdl:message name="LogoutAgentFromTerminalResponse" />
+  <wsdl:message name="GetContact">
+    <wsdl:part name="parameters" element="ns1:GetContactRequest" />
+  </wsdl:message>
+  <wsdl:message name="SetToNotReadyStateException">
+    <wsdl:part name="SetToNotReadyStateException" element="ns2:SetToNotReadyStateException" />
+  </wsdl:message>
+  <wsdl:message name="CallSupervisor">
+    <wsdl:part name="parameters" element="ns1:CallSupervisorRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetAgentTerminals">
+    <wsdl:part name="parameters" element="ns1:GetAgentTerminalsRequest" />
+  </wsdl:message>
+  <wsdl:message name="SetToNotReadyStateWithReasonCode">
+    <wsdl:part name="parameters" element="ns1:SetToNotReadyStateWithReasonCodeRequest" />
+  </wsdl:message>
+  <wsdl:message name="CompleteConference">
+    <wsdl:part name="parameters" element="ns1:CompleteConferenceRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetAgentsResponse">
+    <wsdl:part name="response" element="ns1:GetAgentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetIntrinsicsException">
+    <wsdl:part name="SetIntrinsicsException" element="ns2:SetIntrinsicsException" />
+  </wsdl:message>
+  <wsdl:message name="GetContactDataException">
+    <wsdl:part name="GetContactDataException" element="ns2:GetContactDataException" />
+  </wsdl:message>
+  <wsdl:message name="GetTerminals">
+    <wsdl:part name="parameters" element="ns1:GetTerminalsRequest" />
+  </wsdl:message>
+  <wsdl:message name="SetContactDataResponse" />
+  <wsdl:message name="HoldContactResponse" />
+  <wsdl:message name="UnHoldContactException">
+    <wsdl:part name="UnHoldContactException" element="ns2:UnHoldContactException" />
+  </wsdl:message>
+  <wsdl:message name="AnswerContactResponse" />
+  <wsdl:message name="SetIntrinsics">
+    <wsdl:part name="parameters" element="ns1:SetIntrinsicsRequest" />
+  </wsdl:message>
+  <wsdl:message name="CompleteConferenceException">
+    <wsdl:part name="CompleteConferenceException" element="ns2:CompleteConferenceException" />
+  </wsdl:message>
+  <wsdl:message name="InitiateSupervisedTransferResponse">
+    <wsdl:part name="result" element="ns1:InitiateSupervisedTransferResponse" />
+  </wsdl:message>
+  <wsdl:message name="UnHoldContactResponse" />
+  <wsdl:message name="CompleteSupervisedTransferException">
+    <wsdl:part name="CompleteSupervisedTransferException" element="ns2:CompleteSupervisedTransferException" />
+  </wsdl:message>
+  <wsdl:message name="LogoutAgentFromTerminalException">
+    <wsdl:part name="LogoutAgentFromTerminalException" element="ns2:LogoutAgentFromTerminalException" />
+  </wsdl:message>
+  <wsdl:message name="SetToReadyStateResponse" />
+  <wsdl:message name="GetReadyStateResponse">
+    <wsdl:part name="parameters" element="ns1:GetReadyStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="TransferContact">
+    <wsdl:part name="parameters" element="ns1:TransferContactRequest" />
+  </wsdl:message>
+  <wsdl:message name="SessionNotCreatedException">
+    <wsdl:part name="SessionNotCreatedException" element="ns2:SessionNotCreatedException" />
+  </wsdl:message>
+  <wsdl:message name="GetAgentAddressesResponse">
+    <wsdl:part name="response" element="ns1:GetAgentAddressesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetToReadyState">
+    <wsdl:part name="parameters" element="ns1:SetToReadyStatetRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressesException">
+    <wsdl:part name="GetAddressesException" element="ns2:GetAddressesException" />
+  </wsdl:message>
+  <wsdl:message name="CompleteSupervisedTransfer">
+    <wsdl:part name="parameters" element="ns1:CompleteSupervisedTransferRequest" />
+  </wsdl:message>
+  <wsdl:message name="SetActivityCodeException">
+    <wsdl:part name="SetActivityCodeException" element="ns2:SetActivityCodeException" />
+  </wsdl:message>
+  <wsdl:message name="CompleteSupervisedTransferResponse" />
+  <wsdl:message name="GetTerminalAddresses">
+    <wsdl:part name="parameters" element="ns1:GetTerminalAddressesRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetTerminalResponse">
+    <wsdl:part name="result" element="ns1:TerminalResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetContactDataException">
+    <wsdl:part name="SetContactDataException" element="ns2:SetContactDataException" />
+  </wsdl:message>
+  <wsdl:message name="HoldContactException">
+    <wsdl:part name="HoldContactException" element="ns2:HoldContactException" />
+  </wsdl:message>
+  <wsdl:message name="LogInToCCTServer">
+    <wsdl:part name="parameters" element="ns1:LogInToCCTServerRequest" />
+  </wsdl:message>
+  <wsdl:message name="MakeSetBusy">
+    <wsdl:part name="parameters" element="ns1:MakeSetBusyRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressException">
+    <wsdl:part name="GetAddressException" element="ns2:GetAddressException" />
+  </wsdl:message>
+  <wsdl:message name="SetToNotReadyStateWithReasonCodeException">
+    <wsdl:part name="SetToNotReadyStateWithReasonCodeException" element="ns2:SetToNotReadyStateWithReasonCodeException" />
+  </wsdl:message>
+  <wsdl:message name="GetTerminal">
+    <wsdl:part name="parameters" element="ns1:GetTerminalRequest" />
+  </wsdl:message>
+  <wsdl:message name="LoginAgentToTerminalException">
+    <wsdl:part name="LoginAgentToTerminalException" element="ns2:LoginAgentToTerminalException" />
+  </wsdl:message>
+  <wsdl:message name="LogOffFromCCTServerException">
+    <wsdl:part name="LogOffFromCCTServerException" element="ns2:LogOffFromCCTServerException" />
+  </wsdl:message>
+  <wsdl:message name="DropContactException">
+    <wsdl:part name="DropContactException" element="ns2:DropContactException" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentTerminalCountException">
+    <wsdl:part name="GetCurrentTerminalCountException" element="ns2:GetCurrentTerminalCountException" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentAddressCountException">
+    <wsdl:part name="GetCurrentAddressCountException" element="ns2:GetCurrentAddressCountException" />
+  </wsdl:message>
+  <wsdl:message name="TransferContactResponse" />
+  <wsdl:message name="GetAgents">
+    <wsdl:part name="parameters" element="ns1:GetAgentsRequest" />
+  </wsdl:message>
+  <wsdl:message name="GenerateDTMF">
+    <wsdl:part name="parameters" element="ns1:GenerateDTMFRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentTerminalCountResponse">
+    <wsdl:part name="response" element="ns1:GetCurrentTerminalCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetIntrinsicsResponse">
+    <wsdl:part name="response" element="ns1:GetIntrinsicsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTerminalAddressesResponse">
+    <wsdl:part name="result" element="ns1:GetTerminalAddressesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentTerminalCount">
+    <wsdl:part name="parameters" element="ns1:GetCurrentTerminalCountRequest" />
+  </wsdl:message>
+  <wsdl:message name="CallSupervisorException">
+    <wsdl:part name="CallSupervisorException" element="ns2:CallSupervisorException" />
+  </wsdl:message>
+  <wsdl:message name="DisposeException">
+    <wsdl:part name="DisposeException" element="ns2:DisposeException" />
+  </wsdl:message>
+  <wsdl:message name="CreateContactException">
+    <wsdl:part name="CreateContactException" element="ns2:CreateContactException" />
+  </wsdl:message>
+  <wsdl:message name="Dispose">
+    <wsdl:part name="parameters" element="ns1:DisposeRequest" />
+  </wsdl:message>
+  <wsdl:message name="SetActivityCode">
+    <wsdl:part name="parameters" element="ns1:SetActivityCodeRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressesResponse">
+    <wsdl:part name="result" element="ns1:GetAddressesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAgentAddressesException">
+    <wsdl:part name="GetAgentAddressesException" element="ns2:GetAgentAddressesException" />
+  </wsdl:message>
+  <wsdl:message name="SetActivityCodeResponse" />
+  <wsdl:message name="LogOffFromCCTServer">
+    <wsdl:part name="parameters" element="ns1:LogOffFromCCTServerRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetAgentsException">
+    <wsdl:part name="GetAgentsException" element="ns2:GetAgentsException" />
+  </wsdl:message>
+  <wsdl:message name="GenerateDTMFException">
+    <wsdl:part name="GenerateDTMFException" element="ns2:GenerateDTMFException" />
+  </wsdl:message>
+  <wsdl:message name="LogoutAgentFromTerminal">
+    <wsdl:part name="parameters" element="ns1:LogoutAgentFromTerminalRequest" />
+  </wsdl:message>
+  <wsdl:message name="LoginAgentToStateResponse" />
+  <wsdl:message name="UnHoldContact">
+    <wsdl:part name="parameters" element="ns1:UnHoldContactRequest" />
+  </wsdl:message>
+  <wsdl:message name="CompleteConferenceResponse" />
+  <wsdl:message name="GenerateDTMFResponse" />
+  <wsdl:message name="EmergencyKeyException">
+    <wsdl:part name="EmergencyKeyException" element="ns2:EmergencyKeyException" />
+  </wsdl:message>
+  <wsdl:portType name="SessionService">
+    <wsdl:operation name="GetContactData">
+      <wsdl:input name="GetContactData" message="tns:GetContactData" />
+      <wsdl:output name="GetContactDataResponse" message="tns:GetContactDataResponse" />
+      <wsdl:fault name="GetContactDataException" message="tns:GetContactDataException" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+    </wsdl:operation>
+    <wsdl:operation name="CompleteSupervisedTransfer">
+      <wsdl:input name="CompleteSupervisedTransfer" message="tns:CompleteSupervisedTransfer" />
+      <wsdl:output name="CompleteSupervisedTransferResponse" message="tns:CompleteSupervisedTransferResponse" />
+      <wsdl:fault name="CompleteSupervisedTransferException" message="tns:CompleteSupervisedTransferException" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReadyState">
+      <wsdl:input name="GetReadyState" message="tns:GetReadyState" />
+      <wsdl:output name="GetReadyStateResponse" message="tns:GetReadyStateResponse" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+      <wsdl:fault name="GetReadyStateException" message="tns:GetReadyStateException" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAddresses">
+      <wsdl:input name="GetAddresses" message="tns:GetAddresses" />
+      <wsdl:output name="GetAddressesResponse" message="tns:GetAddressesResponse" />
+      <wsdl:fault name="GetAddressesException" message="tns:GetAddressesException" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <wsdl:input name="GetVersion" message="tns:GetVersion" />
+      <wsdl:output name="GetVersionResponse" message="tns:GetVersionResponse" />
+      <wsdl:fault name="GetVersionException" message="tns:GetVersionException" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateContact">
+      <wsdl:input name="CreateContact" message="tns:CreateContact" />
+      <wsdl:output name="CreateContactResponse" message="tns:CreateContactResponse" />
+      <wsdl:fault name="CreateContactException" message="tns:CreateContactException" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTerminalAddresses">
+      <wsdl:input name="GetTerminalAddresses" message="tns:GetTerminalAddresses" />
+      <wsdl:output name="GetTerminalAddressesResponse" message="tns:GetTerminalAddressesResponse" />
+      <wsdl:fault name="GetTerminalAddressesException" message="tns:GetTerminalAddressesException" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContact">
+      <wsdl:input name="GetContact" message="tns:GetContact" />
+      <wsdl:output name="GetContactResponse" message="tns:GetContactResponse" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+      <wsdl:fault name="GetContactException" message="tns:GetContactException" />
+    </wsdl:operation>
+    <wsdl:operation name="LogInToCCTServer">
+      <wsdl:input name="LogInToCCTServer" message="tns:LogInToCCTServer" />
+      <wsdl:output name="LogInToCCTServerResponse" message="tns:LogInToCCTServerResponse" />
+      <wsdl:fault name="LogInToCCTServerException" message="tns:LogInToCCTServerException" />
+    </wsdl:operation>
+    <wsdl:operation name="CallSupervisor">
+      <wsdl:input name="CallSupervisor" message="tns:CallSupervisor" />
+      <wsdl:output name="CallSupervisorResponse" message="tns:CallSupervisorResponse" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+      <wsdl:fault name="CallSupervisorException" message="tns:CallSupervisorException" />
+    </wsdl:operation>
+    <wsdl:operation name="DropContact">
+      <wsdl:input name="DropContact" message="tns:DropContact" />
+      <wsdl:output name="DropContactResponse" message="tns:DropContactResponse" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+      <wsdl:fault name="DropContactException" message="tns:DropContactException" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIntrinsics">
+      <wsdl:input name="GetIntrinsics" message="tns:GetIntrinsics" />
+      <wsdl:output name="GetIntrinsicsResponse" message="tns:GetIntrinsicsResponse" />
+      <wsdl:fault name="GetIntrinsicsException" message="tns:GetIntrinsicsException" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+    </wsdl:operation>
+    <wsdl:operation name="MakeSetBusy">
+      <wsdl:input name="MakeSetBusy" message="tns:MakeSetBusy" />
+      <wsdl:output name="MakeSetBusyResponse" message="tns:MakeSetBusyResponse" />
+      <wsdl:fault name="MakeSetBusyException" message="tns:MakeSetBusyException" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentTerminals">
+      <wsdl:input name="GetAgentTerminals" message="tns:GetAgentTerminals" />
+      <wsdl:output name="GetAgentTerminalsResponse" message="tns:GetAgentTerminalsResponse" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+      <wsdl:fault name="GetAgentTerminalsException" message="tns:GetAgentTerminalsException" />
+    </wsdl:operation>
+    <wsdl:operation name="SetToNotReadyStateWithReasonCode">
+      <wsdl:input name="SetToNotReadyStateWithReasonCode" message="tns:SetToNotReadyStateWithReasonCode" />
+      <wsdl:output name="SetToNotReadyStateWithReasonCodeResponse" message="tns:SetToNotReadyStateWithReasonCodeResponse" />
+      <wsdl:fault name="SetToNotReadyStateWithReasonCodeException" message="tns:SetToNotReadyStateWithReasonCodeException" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginAgentToState">
+      <wsdl:input name="LoginAgentToState" message="tns:LoginAgentToState" />
+      <wsdl:output name="LoginAgentToStateResponse" message="tns:LoginAgentToStateResponse" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+      <wsdl:fault name="LoginAgentToStateException" message="tns:LoginAgentToStateException" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginAgent">
+      <wsdl:input name="LoginAgent" message="tns:LoginAgent" />
+      <wsdl:output name="LoginAgentResponse" message="tns:LoginAgentResponse" />
+      <wsdl:fault name="LoginAgentException" message="tns:LoginAgentException" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+    </wsdl:operation>
+    <wsdl:operation name="CompleteConference">
+      <wsdl:input name="CompleteConference" message="tns:CompleteConference" />
+      <wsdl:output name="CompleteConferenceResponse" message="tns:CompleteConferenceResponse" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+      <wsdl:fault name="CompleteConferenceException" message="tns:CompleteConferenceException" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTerminal">
+      <wsdl:input name="GetTerminal" message="tns:GetTerminal" />
+      <wsdl:output name="GetTerminalResponse" message="tns:GetTerminalResponse" />
+      <wsdl:fault name="GetTerminalException" message="tns:GetTerminalException" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+    </wsdl:operation>
+    <wsdl:operation name="AnswerContact">
+      <wsdl:input name="AnswerContact" message="tns:AnswerContact" />
+      <wsdl:output name="AnswerContactResponse" message="tns:AnswerContactResponse" />
+      <wsdl:fault name="AnswerContactException" message="tns:AnswerContactException" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAgents">
+      <wsdl:input name="GetAgents" message="tns:GetAgents" />
+      <wsdl:output name="GetAgentsResponse" message="tns:GetAgentsResponse" />
+      <wsdl:fault name="GetAgentsException" message="tns:GetAgentsException" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateDTMF">
+      <wsdl:input name="GenerateDTMF" message="tns:GenerateDTMF" />
+      <wsdl:output name="GenerateDTMFResponse" message="tns:GenerateDTMFResponse" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+      <wsdl:fault name="GenerateDTMFException" message="tns:GenerateDTMFException" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTerminals">
+      <wsdl:input name="GetTerminals" message="tns:GetTerminals" />
+      <wsdl:output name="GetTerminalsResponse" message="tns:GetTerminalsResponse" />
+      <wsdl:fault name="GetTerminalsException" message="tns:GetTerminalsException" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+    </wsdl:operation>
+    <wsdl:operation name="SetIntrinsics">
+      <wsdl:input name="SetIntrinsics" message="tns:SetIntrinsics" />
+      <wsdl:output name="SetIntrinsicsResponse" message="tns:SetIntrinsicsResponse" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+      <wsdl:fault name="SetIntrinsicsException" message="tns:SetIntrinsicsException" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginAgentToTerminal">
+      <wsdl:input name="LoginAgentToTerminal" message="tns:LoginAgentToTerminal" />
+      <wsdl:output name="LoginAgentToTerminalResponse" message="tns:LoginAgentToTerminalResponse" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+      <wsdl:fault name="LoginAgentToTerminalException" message="tns:LoginAgentToTerminalException" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentTerminalCount">
+      <wsdl:input name="GetCurrentTerminalCount" message="tns:GetCurrentTerminalCount" />
+      <wsdl:output name="GetCurrentTerminalCountResponse" message="tns:GetCurrentTerminalCountResponse" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+      <wsdl:fault name="GetCurrentTerminalCountException" message="tns:GetCurrentTerminalCountException" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentAddressCount">
+      <wsdl:input name="GetCurrentAddressCount" message="tns:GetCurrentAddressCount" />
+      <wsdl:output name="GetCurrentAddressCountResponse" message="tns:GetCurrentAddressCountResponse" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+      <wsdl:fault name="GetCurrentAddressCountException" message="tns:GetCurrentAddressCountException" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentAddresses">
+      <wsdl:input name="GetAgentAddresses" message="tns:GetAgentAddresses" />
+      <wsdl:output name="GetAgentAddressesResponse" message="tns:GetAgentAddressesResponse" />
+      <wsdl:fault name="GetAgentAddressesException" message="tns:GetAgentAddressesException" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+    </wsdl:operation>
+    <wsdl:operation name="Dispose">
+      <wsdl:input name="Dispose" message="tns:Dispose" />
+      <wsdl:output name="DisposeResponse" message="tns:DisposeResponse" />
+      <wsdl:fault name="DisposeException" message="tns:DisposeException" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+    </wsdl:operation>
+    <wsdl:operation name="SetActivityCode">
+      <wsdl:input name="SetActivityCode" message="tns:SetActivityCode" />
+      <wsdl:output name="SetActivityCodeResponse" message="tns:SetActivityCodeResponse" />
+      <wsdl:fault name="SetActivityCodeException" message="tns:SetActivityCodeException" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+    </wsdl:operation>
+    <wsdl:operation name="SetContactData">
+      <wsdl:input name="SetContactData" message="tns:SetContactData" />
+      <wsdl:output name="SetContactDataResponse" message="tns:SetContactDataResponse" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+      <wsdl:fault name="SetContactDataException" message="tns:SetContactDataException" />
+    </wsdl:operation>
+    <wsdl:operation name="InitiateSupervisedTransfer">
+      <wsdl:input name="InitiateSupervisedTransfer" message="tns:InitiateSupervisedTransfer" />
+      <wsdl:output name="InitiateSupervisedTransferResponse" message="tns:InitiateSupervisedTransferResponse" />
+      <wsdl:fault name="InitiateSupervisedTransferException" message="tns:InitiateSupervisedTransferException" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+    </wsdl:operation>
+    <wsdl:operation name="LogOffFromCCTServer">
+      <wsdl:input name="LogOffFromCCTServer" message="tns:LogOffFromCCTServer" />
+      <wsdl:output name="LogOffFromCCTServerResponse" message="tns:LogOffFromCCTServerResponse" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+      <wsdl:fault name="LogOffFromCCTServerException" message="tns:LogOffFromCCTServerException" />
+    </wsdl:operation>
+    <wsdl:operation name="TransferContact">
+      <wsdl:input name="TransferContact" message="tns:TransferContact" />
+      <wsdl:output name="TransferContactResponse" message="tns:TransferContactResponse" />
+      <wsdl:fault name="TransferContactException" message="tns:TransferContactException" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAddress">
+      <wsdl:input name="GetAddress" message="tns:GetAddress" />
+      <wsdl:output name="GetAddressResponse" message="tns:GetAddressResponse" />
+      <wsdl:fault name="GetAddressException" message="tns:GetAddressException" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+    </wsdl:operation>
+    <wsdl:operation name="LogoutAgentFromTerminal">
+      <wsdl:input name="LogoutAgentFromTerminal" message="tns:LogoutAgentFromTerminal" />
+      <wsdl:output name="LogoutAgentFromTerminalResponse" message="tns:LogoutAgentFromTerminalResponse" />
+      <wsdl:fault name="LogoutAgentFromTerminalException" message="tns:LogoutAgentFromTerminalException" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+    </wsdl:operation>
+    <wsdl:operation name="InitiateConference">
+      <wsdl:input name="InitiateConference" message="tns:InitiateConference" />
+      <wsdl:output name="InitiateConferenceResponse" message="tns:InitiateConferenceResponse" />
+      <wsdl:fault name="InitiateConferenceException" message="tns:InitiateConferenceException" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+    </wsdl:operation>
+    <wsdl:operation name="SetToNotReadyState">
+      <wsdl:input name="SetToNotReadyState" message="tns:SetToNotReadyState" />
+      <wsdl:output name="SetToNotReadyStateResponse" message="tns:SetToNotReadyStateResponse" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+      <wsdl:fault name="SetToNotReadyStateException" message="tns:SetToNotReadyStateException" />
+    </wsdl:operation>
+    <wsdl:operation name="SetToReadyState">
+      <wsdl:input name="SetToReadyState" message="tns:SetToReadyState" />
+      <wsdl:output name="SetToReadyStateResponse" message="tns:SetToReadyStateResponse" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+      <wsdl:fault name="SetToReadyStateException" message="tns:SetToReadyStateException" />
+    </wsdl:operation>
+    <wsdl:operation name="LogoutAgent">
+      <wsdl:input name="LogoutAgent" message="tns:LogoutAgent" />
+      <wsdl:output name="LogoutAgentResponse" message="tns:LogoutAgentResponse" />
+      <wsdl:fault name="LogoutAgentException" message="tns:LogoutAgentException" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+    </wsdl:operation>
+    <wsdl:operation name="UnHoldContact">
+      <wsdl:input name="UnHoldContact" message="tns:UnHoldContact" />
+      <wsdl:output name="UnHoldContactResponse" message="tns:UnHoldContactResponse" />
+      <wsdl:fault name="UnHoldContactException" message="tns:UnHoldContactException" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+    </wsdl:operation>
+    <wsdl:operation name="EmergencyKey">
+      <wsdl:input name="EmergencyKey" message="tns:EmergencyKey" />
+      <wsdl:output name="EmergencyKeyResponse" message="tns:EmergencyKeyResponse" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+      <wsdl:fault name="EmergencyKeyException" message="tns:EmergencyKeyException" />
+    </wsdl:operation>
+    <wsdl:operation name="HoldContact">
+      <wsdl:input name="HoldContact" message="tns:HoldContact" />
+      <wsdl:output name="HoldContactResponse" message="tns:HoldContactResponse" />
+      <wsdl:fault name="SessionNotCreatedException" message="tns:SessionNotCreatedException" />
+      <wsdl:fault name="HoldContactException" message="tns:HoldContactException" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SOAOICCTSoapBinding" type="tns:SessionService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetContactData">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/GetContactData" style="document" />
+      <wsdl:input name="GetContactData">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetContactDataResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="GetContactDataException">
+        <soap:fault use="literal" name="GetContactDataException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CompleteSupervisedTransfer">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/CompleteSupervisedTransfer" style="document" />
+      <wsdl:input name="CompleteSupervisedTransfer">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CompleteSupervisedTransferResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CompleteSupervisedTransferException">
+        <soap:fault use="literal" name="CompleteSupervisedTransferException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetReadyState">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/GetReadyState" style="document" />
+      <wsdl:input name="GetReadyState">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetReadyStateResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="GetReadyStateException">
+        <soap:fault use="literal" name="GetReadyStateException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddresses">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/GetAddresses" style="document" />
+      <wsdl:input name="GetAddresses">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAddressesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="GetAddressesException">
+        <soap:fault use="literal" name="GetAddressesException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/GetVersion" style="document" />
+      <wsdl:input name="GetVersion">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetVersionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="GetVersionException">
+        <soap:fault use="literal" name="GetVersionException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateContact">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/CreateContact" style="document" />
+      <wsdl:input name="CreateContact">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CreateContactResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CreateContactException">
+        <soap:fault use="literal" name="CreateContactException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTerminalAddresses">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/GetTerminalAddresses" style="document" />
+      <wsdl:input name="GetTerminalAddresses">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetTerminalAddressesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="GetTerminalAddressesException">
+        <soap:fault use="literal" name="GetTerminalAddressesException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetContact">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/GetContact" style="document" />
+      <wsdl:input name="GetContact">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetContactResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="GetContactException">
+        <soap:fault use="literal" name="GetContactException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LogInToCCTServer">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/LogInToCCTServer" style="document" />
+      <wsdl:input name="LogInToCCTServer">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="LogInToCCTServerResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LogInToCCTServerException">
+        <soap:fault use="literal" name="LogInToCCTServerException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CallSupervisor">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/CallSupervisor" style="document" />
+      <wsdl:input name="CallSupervisor">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CallSupervisorResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="CallSupervisorException">
+        <soap:fault use="literal" name="CallSupervisorException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DropContact">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/DropContact" style="document" />
+      <wsdl:input name="DropContact">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="DropContactResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="DropContactException">
+        <soap:fault use="literal" name="DropContactException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetIntrinsics">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/GetIntrinsics" style="document" />
+      <wsdl:input name="GetIntrinsics">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetIntrinsicsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="GetIntrinsicsException">
+        <soap:fault use="literal" name="GetIntrinsicsException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="MakeSetBusy">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/MakeSetBusy" style="document" />
+      <wsdl:input name="MakeSetBusy">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="MakeSetBusyResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="MakeSetBusyException">
+        <soap:fault use="literal" name="MakeSetBusyException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentTerminals">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/GetAgentTerminals" style="document" />
+      <wsdl:input name="GetAgentTerminals">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAgentTerminalsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="GetAgentTerminalsException">
+        <soap:fault use="literal" name="GetAgentTerminalsException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetToNotReadyStateWithReasonCode">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/SetToNotReadyStateWithReasonCode" style="document" />
+      <wsdl:input name="SetToNotReadyStateWithReasonCode">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SetToNotReadyStateWithReasonCodeResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SetToNotReadyStateWithReasonCodeException">
+        <soap:fault use="literal" name="SetToNotReadyStateWithReasonCodeException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoginAgentToState">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/LoginAgentToState" style="document" />
+      <wsdl:input name="LoginAgentToState">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="LoginAgentToStateResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="LoginAgentToStateException">
+        <soap:fault use="literal" name="LoginAgentToStateException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoginAgent">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/LoginAgent" style="document" />
+      <wsdl:input name="LoginAgent">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="LoginAgentResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginAgentException">
+        <soap:fault use="literal" name="LoginAgentException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CompleteConference">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/CompleteConference" style="document" />
+      <wsdl:input name="CompleteConference">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CompleteConferenceResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="CompleteConferenceException">
+        <soap:fault use="literal" name="CompleteConferenceException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTerminal">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/GetTerminal" style="document" />
+      <wsdl:input name="GetTerminal">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetTerminalResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="GetTerminalException">
+        <soap:fault use="literal" name="GetTerminalException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AnswerContact">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/AnswerContact" style="document" />
+      <wsdl:input name="AnswerContact">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AnswerContactResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AnswerContactException">
+        <soap:fault use="literal" name="AnswerContactException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAgents">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/GetAgents" style="document" />
+      <wsdl:input name="GetAgents">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAgentsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="GetAgentsException">
+        <soap:fault use="literal" name="GetAgentsException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateDTMF">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/GenerateDTMF" style="document" />
+      <wsdl:input name="GenerateDTMF">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GenerateDTMFResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="GenerateDTMFException">
+        <soap:fault use="literal" name="GenerateDTMFException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTerminals">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/GetTerminals" style="document" />
+      <wsdl:input name="GetTerminals">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetTerminalsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="GetTerminalsException">
+        <soap:fault use="literal" name="GetTerminalsException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetIntrinsics">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/SetIntrinsics" style="document" />
+      <wsdl:input name="SetIntrinsics">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SetIntrinsicsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SetIntrinsicsException">
+        <soap:fault use="literal" name="SetIntrinsicsException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoginAgentToTerminal">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/LoginAgentToTerminal" style="document" />
+      <wsdl:input name="LoginAgentToTerminal">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="LoginAgentToTerminalResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="LoginAgentToTerminalException">
+        <soap:fault use="literal" name="LoginAgentToTerminalException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentTerminalCount">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/GetCurrentTerminalCount" style="document" />
+      <wsdl:input name="GetCurrentTerminalCount">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetCurrentTerminalCountResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="GetCurrentTerminalCountException">
+        <soap:fault use="literal" name="GetCurrentTerminalCountException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentAddressCount">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/GetCurrentAddressCouint" style="document" />
+      <wsdl:input name="GetCurrentAddressCount">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetCurrentAddressCountResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="GetCurrentAddressCountException">
+        <soap:fault use="literal" name="GetCurrentAddressCountException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAgentAddresses">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/GetAgentAddresses" style="document" />
+      <wsdl:input name="GetAgentAddresses">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAgentAddressesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="GetAgentAddressesException">
+        <soap:fault use="literal" name="GetAgentAddressesException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Dispose">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/Dispose" style="document" />
+      <wsdl:input name="Dispose">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="DisposeResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DisposeException">
+        <soap:fault use="literal" name="DisposeException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetActivityCode">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/SetActivityCode" style="document" />
+      <wsdl:input name="SetActivityCode">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SetActivityCodeResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SetActivityCodeException">
+        <soap:fault use="literal" name="SetActivityCodeException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetContactData">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/SetContactData" style="document" />
+      <wsdl:input name="SetContactData">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SetContactDataResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SetContactDataException">
+        <soap:fault use="literal" name="SetContactDataException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InitiateSupervisedTransfer">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/InitiateSupervisedTransfer" style="document" />
+      <wsdl:input name="InitiateSupervisedTransfer">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="InitiateSupervisedTransferResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InitiateSupervisedTransferException">
+        <soap:fault use="literal" name="InitiateSupervisedTransferException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LogOffFromCCTServer">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/LogOffFromCCTServer" style="document" />
+      <wsdl:input name="LogOffFromCCTServer">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="LogOffFromCCTServerResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="LogOffFromCCTServerException">
+        <soap:fault use="literal" name="LogOffFromCCTServerException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="TransferContact">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/TransferContact" style="document" />
+      <wsdl:input name="TransferContact">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="TransferContactResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="TransferContactException">
+        <soap:fault use="literal" name="TransferContactException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddress">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/GetAddress" style="document" />
+      <wsdl:input name="GetAddress">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAddressResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="GetAddressException">
+        <soap:fault use="literal" name="GetAddressException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LogoutAgentFromTerminal">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/LogoutAgentFromTerminal" style="document" />
+      <wsdl:input name="LogoutAgentFromTerminal">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="LogoutAgentFromTerminalResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LogoutAgentFromTerminalException">
+        <soap:fault use="literal" name="LogoutAgentFromTerminalException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InitiateConference">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/InitiateConference" style="document" />
+      <wsdl:input name="InitiateConference">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="InitiateConferenceResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InitiateConferenceException">
+        <soap:fault use="literal" name="InitiateConferenceException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetToNotReadyState">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/SetToNotReadyState" style="document" />
+      <wsdl:input name="SetToNotReadyState">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SetToNotReadyStateResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SetToNotReadyStateException">
+        <soap:fault use="literal" name="SetToNotReadyStateException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetToReadyState">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/SetToReadyState" style="document" />
+      <wsdl:input name="SetToReadyState">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SetToReadyStateResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SetToReadyStateException">
+        <soap:fault use="literal" name="SetToReadyStateException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LogoutAgent">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/LogoutAgent" style="document" />
+      <wsdl:input name="LogoutAgent">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="LogoutAgentResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LogoutAgentException">
+        <soap:fault use="literal" name="LogoutAgentException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UnHoldContact">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/UnHoldContact" style="document" />
+      <wsdl:input name="UnHoldContact">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UnHoldContactResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="UnHoldContactException">
+        <soap:fault use="literal" name="UnHoldContactException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="EmergencyKey">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/EmergencyKey" style="document" />
+      <wsdl:input name="EmergencyKey">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="EmergencyKeyResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="EmergencyKeyException">
+        <soap:fault use="literal" name="EmergencyKeyException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="HoldContact">
+      <soap:operation soapAction="http://www.nortel.com/soa/oi/cct/SessionService/HoldContact" style="document" />
+      <wsdl:input name="HoldContact">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="HoldContactResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SessionNotCreatedException">
+        <soap:fault use="literal" name="SessionNotCreatedException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="HoldContactException">
+        <soap:fault use="literal" name="HoldContactException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SOAOICCT">
+    <wsdl:port name="SessionService" binding="tns:SOAOICCTSoapBinding">
+      <soap:address location="http://jo00-ccenterha:9080/SOAOICCT/services/SessionService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
