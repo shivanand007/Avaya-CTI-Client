@@ -37,7 +37,6 @@ Before you begin, ensure you have met the following requirements:
 
 - [Visual Studio](https://visualstudio.microsoft.com/): The application is built using .NET, so you'll need Visual Studio for development and deployment.
 - .NET Framework: Ensure that you have the required .NET Framework version installed.
-- Other prerequisites specific to your project (e.g., Avaya API credentials, database setup, etc.).
 
 ### Installation
 
