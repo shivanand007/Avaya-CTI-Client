@@ -31,22 +31,22 @@ Welcome to the Avaya Telephony Integration Web Application! This web application
 
 - **Data-Driven Insights**: Gather valuable customer data during calls to inform decision-making.
 
-## Getting Started
-
-Follow our comprehensive documentation to set up and deploy the Avaya Telephony Integration Web Application in your environment. Get started quickly and harness the full potential of Avaya's telephony capabilities.
-
 ### Prerequisites
 
 Before you begin, ensure you have met the following requirements:
 
-- Prerequisite 1
-- Prerequisite 2
-- ...
+- [Visual Studio](https://visualstudio.microsoft.com/): The application is built using .NET, so you'll need Visual Studio for development and deployment.
+- .NET Framework: Ensure that you have the required .NET Framework version installed.
+- Other prerequisites specific to your project (e.g., Avaya API credentials, database setup, etc.).
 
 ### Installation
 
 Use the following steps to install and configure the application:
 
 ```bash
-# Example installation command
-npm install avaya-telephony-app
+# Clone the repository
+git clone https://github.com/your-account/avaya-telephony-app.git
+
+# Open the project in Visual Studio
+# Build and run the application
+# Follow the setup wizard for configuration
